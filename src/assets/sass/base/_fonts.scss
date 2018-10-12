@@ -1,0 +1,10 @@
+$font_path: '~@/assets/fonts/';
+// REGULAR
+  @font-face {
+    font-family: 'burbank_big';
+    src: url($font_path + '../../assets/fonts/Burbank_Big_Condensed_Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+$burbank-big : 'burbank_big', sans-serif;
