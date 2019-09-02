@@ -3,9 +3,6 @@
     <div class="md-layout">
       <div class="md-layout-item md-large-size-100 md-alignment-center-center"
            @click="showDialog = true">
-        <!--<div class="description">-->
-          <!--CREATE A NEW TASK-->
-        <!--</div>-->
         <div class="info-icon">
           <md-icon class="md-size-1x">add_circle</md-icon>
         </div>
@@ -84,44 +81,9 @@ export default {
   .newTask {
     border: 1px solid white;
     width:45px;
-    margin-top: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 2px;
+    margin: 15px auto 2px;
     /*padding:5px;*/
     background-color:rgba(0,0,255, .05);
     height: calc(100% - 14px);
-  }
-  .description {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    text-align:center;
-    font-weight:bold;
-  }
-
-  .info-icon {
-    padding:5px;
-    text-align:center;
-    position:relative;
-    display:flex;
-    flex-direction:row;
-    height:100%;
-  }
-  .info-icon:before {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: -0.25em; /* Adjusts for spacing */
-  }
-
-  .hvr-grow:hover,
-  .hvr-grow:focus {
-    transform: scale(1.15);
-  }
-  .hvr-grow:active {
-    transform: scale(1.00);
-  }
-  .md-button {
-    border: 1px solid white;
   }
 </style>

@@ -21,7 +21,6 @@ export default {
       };
     },
     onclick() {
-      // console.log('CLICK');
       const newStyle = this.collapsed ? 'block' : 'none';
       this.$refs.panelBody.style.display = newStyle;
       this.collapsed = !this.collapsed;
@@ -54,7 +53,7 @@ export default {
         position: absolute;
         right: 10px;
         /*top: 7px;*/
-      top:25%;
+        top:25%;
         font-size: 2em;
     }
 
@@ -64,12 +63,10 @@ export default {
 
     .panel {
       border: 1px solid;
-      /*display:flex;*/
-      /*align-items:center;*/
     }
 
     .panel-hd {
-        /*height: 30px;*/
+        /*min-height: 30px;*/
         position: relative;
         background: #222;
     }

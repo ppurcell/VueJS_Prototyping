@@ -3,20 +3,20 @@
     <CollapsiblePanel border-color='red' title="Level I Scavenger Items">
       <template slot="header">
         <div class="resetHeader"/>
-        <div class="header">
-        <div class="info md-layout">
-          <div class="title md-layout-item md-large-size-20 md-medium-size-100">
-            {{category.title}}
-          </div>
-          <div class="info-graph md-layout md-layout-item md-large-size-80 md-medium-size-100">
-            <div class="info-graph-bar md-layout-item md-large-size-85">
-              <div ref='devBar' :style="infoGraphProgress" class='info-graph-progress'></div>
+        <div class="category-header">
+          <div class="category-info md-layout">
+            <div class="category-title md-layout-item md-large-size-20 md-medium-size-100">
+              {{category.title}}
             </div>
-            <div class="info-graph-number md-layout-item md-large-size-10">
-              <sup>{{acceptedTasks}}</sup>/<sub>{{tasks.length}}</sub>
+            <div class="progress-ind md-layout md-layout-item md-large-size-80 md-medium-size-100">
+              <div class="progress-ind-bar md-layout-item md-large-size-85">
+                <div ref='devBar' :style="infoGraphProgress" class='progress-ind-progress'></div>
+              </div>
+              <div class="progress-ind-number md-layout-item md-large-size-10">
+                <sup>{{acceptedTasks}}</sup>/<sub>{{tasks.length}}</sub>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </template>
       <template slot="body">
@@ -27,11 +27,11 @@
               <Task v-bind:task="task"
                     v-on:phase-change="phaseChange"
                     v-on:delete-task="deleteTask"
-              @change="saveTasks"/>
+                    @change="saveTasks"/>
             </div>
             <div class="md-layout-item md-large-size-100">
-              <NewTask v-on:new-task = 'newTask'/>
-            </div >
+              <NewTask v-on:new-task='newTask'/>
+            </div>
           </div>
         </div>
       </template>
@@ -118,61 +118,50 @@ export default {
 </script>
 <style lang="scss" scoped>
   @import '../../assets/sass/base/_fonts.scss';
-  div {
-    color:white;
-  }
   .category {
-    margin-bottom:15px;
+    margin-bottom: 15px;
     border: 2px solid white;
+    color: white;
   }
-  .header {
-    padding:10px;
+  .category-info {
+    display:flex;
+    align-items:center;
+    margin-bottom:0px!important;
+  }
+
+  .category-header {
+    padding: 10px;
     background-color: rgba(0, 0, 0, 0.2);
     /*border-bottom: 1px solid white;*/
   }
-  .title{
+
+  .category-title {
     font-family: $burbank-big;
-    font-size:2em;
+    font-size: 2em;
     text-transform: uppercase;
   }
-  .info-icon {
-    padding:5px;
-    text-align:center;
-    position:relative;
-    display:flex;
-    flex-direction:column;
+
+  .progress-ind {
+    display: flex;
+    align-items: center;
   }
-  .info-icon:before {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: -0.25em; /* Adjusts for spacing */
-  }
-  i {
-    position:relative;
-    opacity: 1;
-    text-shadow: 2px 1px black;
-    font-size:40px!important;
-  }
-  .info-graph {
-    display:flex;
-    align-items:center;
-  }
-  .info-graph-bar {
+
+  .progress-ind-bar {
     border: 3px solid white;
     height: 20px;
-    padding:0px;
+    padding: 0px;
   }
-  .info-graph-progress {
-    height:100%;
+
+  .progress-ind-progress {
+    height: 100%;
     background-color: rgba(44, 121, 51, 0.8) !important;
-    width:70%;
+    width: 70%;
   }
-  .info-graph-number{
-    font-family:$burbank-big;
-    font-weight:bold;
-    text-align:center;
+
+  .progress-ind-number {
+    font-family: $burbank-big;
+    font-weight: bold;
+    text-align: center;
     font-size: 1em;
   }
-  sup {vertical-align: super; }
-  sub { vertical-align: sub; }
 </style>

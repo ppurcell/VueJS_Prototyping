@@ -1,0 +1,44 @@
+@import "../base/mixins";
+@import "../base/variables";
+
+//.panel-bd {
+//    background-color: white;
+//}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.wrapper,
+.row {
+    @extend %clearfix;
+}
+
+.row {
+    border: 2px solid #0d71bb;
+}
+
+[class*='column-'] {
+    float: left;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+    border: 2px solid #ca1010;
+}
+
+@media #{$breakpoint-medium} {
+
+    .wrapper {
+        width: 95%;
+        max-width: $grid-max-width;
+    }
+
+    @for $i from 1 through $grid-columns {
+
+        .column-#{$i} {
+            width: 100% / 12 * $i;
+        }
+
+    }
+}
